@@ -20,11 +20,16 @@ namespace SysHotelVeraneras.EntidadesDeNegocio
         [Required(ErrorMessage = "Cantidad es obligatorio")]
         public int Cantidad { get; set; }
 
+        public int NuevoSaldo { get; set; }
+
         [Required(ErrorMessage = "Correlativo inicial es obligatorio")]
         public int CorrelativoInicio { get; set; }
 
         [Required(ErrorMessage = "Correltivo final es obligatorio")]
         public int CorrelativoFin { get; set; }
+
+        [Display(Name = "Fecha registro")]
+        public DateTime FechaRegistro { get; set; }
 
         [ForeignKey("Usuario")]
         [Required(ErrorMessage = "Usuario es obligatorio")]

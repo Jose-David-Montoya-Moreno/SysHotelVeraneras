@@ -15,6 +15,7 @@ namespace SysHotelVeraneras.AccesoADatos
             int result = 0;
             using (var bdContexto = new BDContexto())
             {
+                pInventario.FechaRegistro = DateTime.Now;
                 bdContexto.Add(pInventario);
                 result = await bdContexto.SaveChangesAsync();
             }
@@ -69,6 +70,8 @@ namespace SysHotelVeraneras.AccesoADatos
                 pQuery = pQuery.Where(s => s.IdInventario == pInventario.IdInventario);
             if (pInventario.Cantidad > 0)
                 pQuery = pQuery.Where(s => s.Cantidad == pInventario.Cantidad);
+            if (pInventario.IdBrazalete > 0)
+                pQuery = pQuery.Where(s => s.IdBrazalete == pInventario.IdBrazalete);
             pQuery = pQuery.OrderByDescending(s => s.IdInventario).AsQueryable();
             if (pInventario.Top_Aux > 0)
                 pQuery = pQuery.Take(pInventario.Top_Aux).AsQueryable();

@@ -1,10 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SysHotelVeraneras.EntidadesDeNegocio;
 using SysHotelVeraneras.LogicaDeNegocio;
 
 namespace SysHotelVeraneras.UI.AppWebAspNetCore.Controllers
 {
+    [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
+
     public class BrazaleteController : Controller
     {
         BrazaleteBL BrazaleteBL = new BrazaleteBL();
