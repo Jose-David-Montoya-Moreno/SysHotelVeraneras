@@ -20,9 +20,9 @@ namespace SysHotelVeraneras.UI.AppWebAspNetCore.Controllers
             else if (pBrazalete.Top_Aux == -1)
                 pBrazalete.Top_Aux = 0;
             var taskBuscar = BrazaleteBL.BuscarIncluirAsignacionAsync(pBrazalete);
-            var taskObtenerTodosCategoria = AsignacionBL.ObtenerTodosAsync();
+            var taskObtenerTodos = AsignacionBL.ObtenerTodosAsync();
             var Brazaletes = await taskBuscar;
-            ViewBag.Categoria = await taskObtenerTodosCategoria;
+            ViewBag.Asignacion = await taskObtenerTodos;
             ViewBag.Top = pBrazalete.Top_Aux;
             return View(Brazaletes);
         }
@@ -51,8 +51,13 @@ namespace SysHotelVeraneras.UI.AppWebAspNetCore.Controllers
         {
             try
             {
+                if (pBrazalete.Cantidad == null)
+                {
+                    pBrazalete.Cantidad = 0;
+                }
                 int result = await BrazaleteBL.CrearAsync(pBrazalete);
                 return RedirectToAction(nameof(Index));
+            
             }
             catch (Exception ex)
             {
@@ -66,9 +71,9 @@ namespace SysHotelVeraneras.UI.AppWebAspNetCore.Controllers
         public async Task<IActionResult> Edit(Brazalete pBrazalete)
         {
             var taskObtenerPorId = BrazaleteBL.ObtenerPorIdAsync(pBrazalete);
-            var taskObtenerTodosAsignacion = AsignacionBL.ObtenerTodosAsync();
+            var taskObtenerTodos = AsignacionBL.ObtenerTodosAsync();
             var Brazalete = await taskObtenerPorId;
-            ViewBag.Asignacion = await taskObtenerTodosAsignacion;
+            ViewBag.Asignacion = await taskObtenerTodos;
             ViewBag.Error = "";
             return View(Brazalete);
         }
@@ -80,6 +85,10 @@ namespace SysHotelVeraneras.UI.AppWebAspNetCore.Controllers
         {
             try
             {
+                if (pBrazalete.Cantidad == null)
+                {
+                    pBrazalete.Cantidad = 0;
+                }
                 int result = await BrazaleteBL.ModificarAsync(pBrazalete);
                 return RedirectToAction(nameof(Index));
             }
@@ -87,8 +96,7 @@ namespace SysHotelVeraneras.UI.AppWebAspNetCore.Controllers
             {
                 ViewBag.Error = ex.Message;
                 ViewBag.Asignacion = await AsignacionBL.ObtenerTodosAsync();
-                return View(pBrazalete
-                    );
+                return View(pBrazalete);
             }
         }
 

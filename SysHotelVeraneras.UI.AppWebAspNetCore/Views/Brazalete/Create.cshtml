@@ -1,0 +1,66 @@
+﻿@model SysHotelVeraneras.EntidadesDeNegocio.Brazalete
+
+@{
+    ViewData["Title"] = "Create";
+    List<SysHotelVeraneras.EntidadesDeNegocio.Asignacion> asignaciones = ViewBag.Asignacion as List<SysHotelVeraneras.EntidadesDeNegocio.Asignacion>;
+}
+
+<h1>Create</h1>
+
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+
+  
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group ">
+                    <label asp-for="Color" class="control-label"></label>
+                    <input asp-for="Color" class="form-control" />
+                    <span asp-validation-for="Color" class="text-danger"></span>
+                </div>
+            </div>
+
+            @* RELACIONES BOTONES DESPLEGABLAS*@
+
+            <div class="col-md-4">
+                <div class="form-group ">
+                    <label asp-for="Asignacion" class="control-label"></label>
+
+                    <select asp-for="IdAsignacion" class="form-control">
+                        <option selected value="">SELECCIONAR</option>
+                        @foreach (var item in asignaciones)
+                        {
+                            <option value="@item.IdAsignacion">@item.Nombre</option>
+                        }
+                    </select>
+                    <span asp-validation-for="IdAsignacion" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        @*BOTONES EDITADOS CON ICONOS*@
+
+        <div class="form-group" style="margin-top: 10px;">
+            <button type="submit" class="btn btn-success" style="margin-right: 10px;">
+                <i class="fas fa-save"></i> Guardar
+            </button>
+
+            <button type="button" class="btn btn-danger" onclick="window.location.href='@Url.Action("Index")'" style="margin-left: 10px;">
+                <i class="fas fa-times"></i> Cancelar
+            </button>
+        </div>
+
+        <span class="text-danger">@ViewBag.Error</span>
+
+    </div>
+
+</form>
+
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
