@@ -1,0 +1,30 @@
+﻿@model SysHotelVeraneras.EntidadesDeNegocio.Usuario
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<h4>Usuario</h4>
+<hr />
+<form asp-action="Login" style="width: 15rem;">
+
+    <div class="user-box">
+        <input asp-for="Login" class="form-control form-control-lg" placeholder="Ingrese su usuario" />
+
+    </div>
+
+
+    <div class="user-box">
+        <input asp-for="Password" class="form-control form-control-lg" placeholder="Introduce la contraseña" />
+    </div>
+
+<button type="submit">Entrar</button>
+
+   
+
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
