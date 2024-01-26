@@ -70,6 +70,8 @@ namespace SysHotelVeraneras.AccesoADatos
                 pQuery = pQuery.Where(s => s.IdInventario == pInventario.IdInventario);
             if (pInventario.Cantidad > 0)
                 pQuery = pQuery.Where(s => s.Cantidad == pInventario.Cantidad);
+            if (pInventario.Movimiento > 0)
+                pQuery = pQuery.Where(s => s.Movimiento == pInventario.Movimiento);
             if (pInventario.IdBrazalete > 0)
                 pQuery = pQuery.Where(s => s.IdBrazalete == pInventario.IdBrazalete);
             pQuery = pQuery.OrderByDescending(s => s.IdInventario).AsQueryable();

@@ -1,6 +1,4 @@
-﻿@model IEnumerable<SysHotelVeraneras.EntidadesDeNegocio.Inventario>
-
-@{
+﻿@{
     ViewData["Title"] = "Index";
     int numPage = 1;
     int numRegistros = 0;
@@ -9,6 +7,8 @@
     int topActual = Convert.ToInt32(ViewBag.Top);
     List<SysHotelVeraneras.EntidadesDeNegocio.Usuario> usuario = ViewBag.Usuario as List<SysHotelVeraneras.EntidadesDeNegocio.Usuario>;
     List<SysHotelVeraneras.EntidadesDeNegocio.Brazalete> brazaletes = ViewBag.Brazalete as List<SysHotelVeraneras.EntidadesDeNegocio.Brazalete>;
+    List<SysHotelVeraneras.EntidadesDeNegocio.Inventario> inventario = ViewBag.Inventario as List<SysHotelVeraneras.EntidadesDeNegocio.Inventario>;
+
 }
 
 <h1>Buscar Ajustes de Inventario</h1>
@@ -17,8 +17,8 @@
         <form asp-action="Index">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="control-label">Producto</label>
+                    <div class="form-group text-center">
+                        <label class="control-label">Color de brazalete</label>
                         <select name="IdBrazalete" class="form-control">
                             <option selected value="0">SELECCIONAR</option>
                             @foreach (var item in brazaletes)
@@ -28,7 +28,28 @@
                         </select>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-group text-center">
+                        <label for="Movimiento" class="control-label">Movimiento</label>
+                        <select name="Movimiento" for="Movimiento" class="form-control text-center">
+                            <option selected value="0">SELECCIONAR</option>
+                            <option value="1">Entrada</option>
+                            <option value="2">Salida</option>
+                        </select>
+                        <span validation-for="Movimiento" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3 col-md-3">
+                    <label for="fechaInicio" class="form-label">Fecha de Inicio</label>
+                    <input type="date" id="fInicio" name="fInicio" class="form-control" />
+                </div>
+
+                <div class="mb-3 col-md-3">
+                    <label for="fechaFin" class="form-label">Fecha de Fin</label>
+                    <input type="date" id="fFinal" name="fFinal" class="form-control" />
+                </div>
             </div>
+    
 
             @* BOTONES DE BUSCAR Y CREAR INVENTARIO*@
 
@@ -73,7 +94,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in inventario)
         {
             <tr>
                 <td>

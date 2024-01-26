@@ -18,7 +18,7 @@ namespace SysHotelVeraneras.UI.AppWebAspNetCore.Controllers
         UsuarioBL usuarioBL = new UsuarioBL();
 
         // GET: DetallePedidoController
-        public async Task<IActionResult> Index(Inventario pInventario = null)       
+        public async Task<IActionResult> Index( DateTime fInicio, DateTime fFinal,Inventario pInventario = null)       
         {
             if (pInventario == null)
                 pInventario = new Inventario();
@@ -31,8 +31,17 @@ namespace SysHotelVeraneras.UI.AppWebAspNetCore.Controllers
             var taskObtenerTodosBrazalete = BrazaleteBL.ObtenerTodosAsync();
             var inventario = await taskBuscar;
             ViewBag.Top = pInventario.Top_Aux;
+            ViewBag.Inventario = await taskBuscar;
             ViewBag.Usuario = await taskObtenerTodosUsuarios;
             ViewBag.Brazalete = await taskObtenerTodosBrazalete;
+            if (fInicio.Year != 1 && fFinal.Year != 1)
+            {
+                ViewBag.Inventario = inventario.Where(r => r.FechaRegistro.Date >= fInicio.Date && r.FechaRegistro.Date <= fFinal.Date).ToList();
+            }
+            else
+            {
+                ViewBag.Inventario = inventario;
+            }
             return View(inventario);
         }
 
