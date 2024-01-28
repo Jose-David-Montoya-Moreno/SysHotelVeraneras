@@ -19,7 +19,7 @@
                 <div class="col-md-4">
                     <div class="form-group text-center">
                         <label class="control-label">Color de brazalete</label>
-                        <select name="IdBrazalete" class="form-control">
+                        <select name="IdBrazalete" class="form-control text-center">
                             <option selected value="0">SELECCIONAR</option>
                             @foreach (var item in brazaletes)
                             {
@@ -39,13 +39,13 @@
                         <span validation-for="Movimiento" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="mb-3 col-md-3">
-                    <label for="fechaInicio" class="form-label">Fecha de Inicio</label>
+                <div class="col-md-4">
+                    <label for="fechaInicio" class="control-label">Fecha de Inicio</label>
                     <input type="date" id="fInicio" name="fInicio" class="form-control" />
                 </div>
 
-                <div class="mb-3 col-md-3">
-                    <label for="fechaFin" class="form-label">Fecha de Fin</label>
+                <div class="col-md-4">
+                    <label for="fechaFin" class="control-label">Fecha de Fin</label>
                     <input type="date" id="fFinal" name="fFinal" class="form-control" />
                 </div>
             </div>
@@ -66,8 +66,12 @@
 
 
         </form>
+        <button type="button" class="btn btn-secondary " style="float:right" onclick="printDiv('Imprimir')">
+            <i class="fas fa-print"></i> Imprimir
+        </button>
     </div>
 </div>
+<div id="Imprimir">
 <table class="table">
     <thead>
         <tr>
@@ -89,8 +93,6 @@
             <th>
                 Responsable
             </th>
-            <th colspan="3">Acciones</th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -124,16 +126,6 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Usuario.Nombre)
                 </td>
-               
-               
-                @*BOTONES CRUD EDITAR - LEER - ELIMINAR DETALLE PEDIDO*@
-
-
-                <td class="botonestabla">
-                    <button type="button" class="btn btn-info" onclick="window.location.href='@Url.Action("Details", new { IdInventario = item.IdInventario })'">
-                        <i class="fas fa-eye"></i> Detalles
-                    </button>
-                </td>
             </tr>
 
             numRegistros++;
@@ -166,3 +158,31 @@
         </div>
     </div>
 }
+</div>
+
+<script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        // Remove the "Acciones" header and the buttons
+        printContents = printContents.replace(/<th colspan="4">Acciones<\/th>/, '');
+
+        // Replace the content of the specific <td> with an empty string
+        printContents = printContents.replace(/<td class="botonestabla".*?>[\s\S]*?<\/td>/g, '<td class="botonestabla"></td>');
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+</script>
+
+<style>
+    @@media print {
+        .print-hide {
+            display: none !important;
+        }
+    }
+</style>

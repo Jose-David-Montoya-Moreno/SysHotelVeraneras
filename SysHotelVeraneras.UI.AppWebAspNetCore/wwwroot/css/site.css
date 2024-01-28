@@ -20,7 +20,7 @@ body {
 
 /* Estilo para el encabezado */
 .header {
-    background-color: #92eb2d; /* Color de fondo */
+    background-color: #d4f3b7; /* Color de fondo */
     padding: 10px; /* Espaciado interno */
     text-align: right; /* Alineación del texto a la derecha */
     height: 10%; /* Altura del contenedor en relación al tamaño del contenedor padre */
@@ -79,3 +79,4 @@ body {
 width:8%;
 height:2%;
 }
+
