@@ -16,3 +16,66 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+/* Estilo para el encabezado */
+.header {
+    background-color: #92eb2d; /* Color de fondo */
+    padding: 10px; /* Espaciado interno */
+    text-align: right; /* Alineación del texto a la derecha */
+    height: 10%; /* Altura del contenedor en relación al tamaño del contenedor padre */
+    width: 100%; /* Ancho automático */
+    z-index: 1000;
+    top: 0; /* Alinea el menú en la parte superior */
+    overflow: auto;
+    display: flex;
+    position: sticky;
+}
+
+/* Estilos para la lista de navegación */
+.navbar-nav {
+    list-style: none; /* Elimina los puntos de lista */
+    display: flex; /* Utiliza el modelo de caja flexible (flexbox) para la lista */
+    margin: 0;
+    padding: 0;
+    display: inline; /* Este estilo parece redundante, ya que display: flex; se aplica antes */
+}
+
+/* Estilo para los elementos de la lista */
+.nav-item {
+    margin-right: 10px; /* Ajustado el margen derecho */
+    width: auto; /* Cambiado el ancho a automático */
+    display: inline-block; /* Estilo en línea y bloque */
+}
+
+/* Estilo para los enlaces dentro de los elementos de la lista */
+.nav-link {
+    text-decoration: none; /* Sin decoración de texto (subrayado) */
+    color: white; /* Color del texto */
+    font-weight: bold; /* Peso de la fuente en negrita */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+    display: inline-block; /* Estilo en línea y bloque */
+    margin: 0px; /* Margen derecho cero */
+}
+
+    /* Estilo para el efecto de cambio de color de fondo al pasar el ratón */
+.FondoHome {
+    font-family: sans-serif;
+    background-image: url('../IMG/Fondo.jpg');
+    width: 125.4%;
+    margin-top: -10%;
+    margin-left: -15%;
+    overflow-y: hidden; /* Oculta el desplazamiento vertical */
+    height: 115%; /* Establece la altura al 100% del viewport height (vh) */
+    display: flex;
+    align-items: flex-end; /* Alinea la imagen en la parte inferior del contenedor */
+    position: fixed; /* Fija la posición del fondo */
+    top: 60px; /* Ajusta esta altura según la altura de tu header */
+
+}
+
+.minilogo{
+width:8%;
+height:2%;
+}
