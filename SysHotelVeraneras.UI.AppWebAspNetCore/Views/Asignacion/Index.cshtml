@@ -44,12 +44,12 @@
 
 
             <div class="form-group" style="margin-top: 10px;">
-                <button type="submit" class="btn btn-primary" style="background-color: #0074D9; color: white;">
+                <button type="submit" class="btn btn-primary" style="background-color: #CDDEA7; color: white; border-color:#CDDEA7;">
                     <i class="fas fa-search"></i> Buscar
                 </button>
 
 
-                <button type="button" class="btn btn-success" onclick="window.location.href='@Url.Action("Create")'">
+                <button type="button" class="btn btn-success"style="background-color: #ADC484; color: white; border-color:#ADC484;"  onclick="window.location.href='@Url.Action("Create")'">
                     <i class="fas fa-plus"></i> Agregar
                 </button>
             </div>
@@ -84,19 +84,19 @@
 
 
                 <td class="botonestabla">
-                    <button type="button" class="btn btn-primary" style="background-color: #264DA0; color: white" onclick="window.location.href='@Url.Action("Edit", new { IdAsignacion = item.IdAsignacion })'">
+                    <button type="button" class="btn btn-primary" style="background-color: #8DAB6F; color: white; border-color:#8DAB6F;" onclick="window.location.href='@Url.Action("Edit", new { IdAsignacion = item.IdAsignacion })'">
                         <i class="fas fa-pencil-alt"></i> Modificar
                     </button>
                 </td>
 
 
                 <td class="botonestabla">
-                    <button type="button" class="btn btn-info" onclick="window.location.href='@Url.Action("Details", new { IdAsignacion = item.IdAsignacion })'">
+                    <button type="button" class="btn btn-info" style="background-color: #6F9257; color: white; border-color:#6F9257;" onclick="window.location.href='@Url.Action("Details", new { IdAsignacion = item.IdAsignacion })'">
                         <i class="fas fa-eye"></i> Detalles
                     </button>
                 </td>
                 <td class="botonestabla">
-                    <button type="button" class="btn btn-danger" onclick="window.location.href='@Url.Action("Delete", new { IdAsignacion = item.IdAsignacion })'">
+                    <button type="button" class="btn btn-danger" style="background-color: #6F9257; color: white; border-color:#6F9257;" onclick="window.location.href='@Url.Action("Delete", new { IdAsignacion = item.IdAsignacion })'">
                         <i class="fas fa-trash"></i> Eliminar
                     </button>
                 </td>
