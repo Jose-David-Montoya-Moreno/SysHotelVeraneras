@@ -23,11 +23,11 @@
     {
         @Html.AntiForgeryToken()
 
-        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Está seguro de eliminar?');" style="margin-left: 10px;">
+        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Está seguro de eliminar?');" style="background-color: #CDDEA7; color: white; border-color:#CDDEA7;">
             <i class="fas fa-trash"></i> Eliminar
         </button>
 
-        <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Index")'" style="margin-left: 10px;">
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Index")'" style="background-color: #ADC484; color: white; border-color:#ADC484;">
             <i class="fas fa-times"></i> Cancelar
         </button>
         <span class="text-danger">@ViewBag.Error</span>

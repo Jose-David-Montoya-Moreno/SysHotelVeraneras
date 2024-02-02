@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Ver Usuario</h1>
+<h1>Detalles de usuario</h1>
 <hr />
 <div>
     <dl class="row">
@@ -64,13 +64,13 @@
 @*BOTONES EDITADOS CON ICONOS*@
 
 <td class="botonestabla">
-    <button type="button" class="btn btn-success" style="background-color: #264DA0; color: white; margin-right: 10px;" onclick="window.location.href='@Url.Action("Edit", new { id = Model.Id })'">
+    <button type="button" class="btn btn-success" style="background-color: #CDDEA7; color: white; border-color:#CDDEA7;" onclick="window.location.href='@Url.Action("Edit", new { id = Model.Id })'">
         <i class="fas fa-pencil-alt"></i> Ir a Modificar
     </button>
 </td>
 
 <td class="botonestabla">
-    <button type="button" class="btn btn-danger" onclick="window.location.href='@Url.Action("Index")'" style="margin-left: 10px;">
+    <button type="button" class="btn btn-danger" onclick="window.location.href='@Url.Action("Index")'" style="background-color: #ADC484; color: white; border-color:#ADC484;">
         <i class="fas fa-times"></i> Cancelar
     </button>
 </td>
