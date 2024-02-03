@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Enviar Correo";
+}
+
+<h2>Enviar Correo</h2>
+
+<form asp-controller="Email" asp-action="EnviarCorreo" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="destinatario">Destinatario:</label>
+                <input type="text" class="form-control" id="destinatario" name="destinatario" required />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="asunto">Asunto:</label>
+                <input type="text" class="form-control" id="asunto" name="asunto" required />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="mensaje">Mensaje:</label>
+                <input class="form-control" id="mensaje" name="mensaje" rows="4" required/>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="archivoAdjunto">Adjuntar Archivo:</label>
+                <input  type="file" class="form-control-file" id="archivoAdjunto" name="archivoAdjunto" />
+            </div>
+        </div>
+       
+    </div>
+    <br />
+    <div class="col-md-4">
+        <button type="submit" class="btn btn-primary" style="background-color: #CDDEA7; color: white; border-color:#CDDEA7;"><i class="fa-solid fa-envelope" style="color: #ffffff;"></i> Enviar Correo</button>
+    </div>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <p>@ViewBag.Message</p>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <p>@ViewBag.Error</p>
+}
+

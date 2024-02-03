@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Resultado del Envío";
+}
+
+<h2>Resultado del Envío</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <p>@ViewBag.Message</p>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <p>@ViewBag.Error</p>
+}
+
+<a asp-controller="Email" asp-action="EnviarCorreo">Volver a Enviar Correo</a>
