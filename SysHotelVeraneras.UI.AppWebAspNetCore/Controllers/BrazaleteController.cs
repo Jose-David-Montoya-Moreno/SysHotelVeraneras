@@ -8,6 +8,7 @@ using SysHotelVeraneras.LogicaDeNegocio;
 namespace SysHotelVeraneras.UI.AppWebAspNetCore.Controllers
 {
     [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
+    [Authorize(Roles = "Administrador,Empleado")]
 
     public class BrazaleteController : Controller
     {

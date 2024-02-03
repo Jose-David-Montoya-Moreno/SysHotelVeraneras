@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace SysHotelVeraneras.UI.AppWebAspNetCore.Controllers
 {
     [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
+    [Authorize(Roles = "Administrador,Empleado")]
     public class InventarioController : Controller
     {
         InventarioBL inventarioBL = new InventarioBL();

@@ -11,6 +11,7 @@ using SysHotelVeraneras.UI.AppWebAspNetCore.Models;
 namespace SysHotelVeraneras.UI.AppWebAspNetCore.Controllers
 {
     [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
+    [Authorize(Roles = "Administrador")]
     public class UsuarioController : Controller
     {
         UsuarioBL usuarioBL = new UsuarioBL();

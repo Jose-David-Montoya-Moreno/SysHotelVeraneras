@@ -29,8 +29,8 @@ public class EmailController : Controller
                 smtpClient.Port = 587;
                 smtpClient.EnableSsl = true;
                 smtpClient.UseDefaultCredentials = false;
-                String sCuentaCorreo = "oscar.olivowom@gmail.com";
-                String sPasswordCorreo = "jcvxcupnpvhlolte";
+                String sCuentaCorreo = "hl23002@esfe.agape.edu.sv";
+                String sPasswordCorreo = "ishjmoeltciyxnfu";
                 smtpClient.Credentials = new System.Net.NetworkCredential(sCuentaCorreo, sPasswordCorreo);
 
 
@@ -38,7 +38,7 @@ public class EmailController : Controller
                 // Crear el correo electrónico
                 using (MailMessage correo = new MailMessage())
                 {
-                    correo.From = new MailAddress("oscar.olivowom@gmail.com");
+                    correo.From = new MailAddress("hl23002@esfe.agape.edu.sv");
                     correo.To.Add(destinatario);
                     correo.Subject = asunto;
                     correo.Body = mensaje;

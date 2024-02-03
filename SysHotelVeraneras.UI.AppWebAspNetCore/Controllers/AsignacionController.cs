@@ -8,7 +8,7 @@ using SysHotelVeraneras.LogicaDeNegocio;
 namespace SysHotelVeraneras.UI.AppWebAspNetCore.Controllers
 {
     [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
-    //[Authorize(Roles = "Administrador")]
+    [Authorize(Roles = "Administrador,Empleado")]
     public class AsignacionController : Controller
     {
         AsignacionBL AsignacionBL = new AsignacionBL();
